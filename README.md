@@ -85,13 +85,31 @@ Delete the .mbox file when you're done. It contains your entire inbox.
 - `-o, --output`: output CSV file (default: `result.csv`)
 - `--lang`: keyword languages, e.g. `en,pt` (default: all)
 - `--extra`: extra words to flag, e.g. `--extra "inscription,registro"`
+- `--no-merge`: don't merge domains that share the same sender name
+  (e.g. `udemy.com` + `udemymail.com`)
 
-Supported languages: English, Portuguese, Spanish, French, German.
-Want another one? Add it to the `KEYWORDS` dictionary and open a pull request.
+Input can be one or more .mbox files, a folder, or a pattern:
+`python email_footprint_scanner.py Takeout/Mail -o result.csv`
 
 ## Output columns
-`domain`, `total_emails`, `signup_or_password_emails`, `first_date`,
-`last_date`, `example_subject`, `action (fill in)`
+`service`, `domains`, `likelihood`, `score`, `total_emails`,
+`signup_emails`, `first_date`, `last_date`, `example_subject`,
+`signals`, `action (fill in)`
+
+## How the score works
+Each service gets points for signals that work in any language:
+
+| Signal | Points |
+|---|---|
+| Subject has a signup/password keyword (any supported language) | +3 |
+| Subject has a 5-8 digit code | +3 |
+| Account-like sender (`noreply@`, `security@`, `accounts@`...) | +2 |
+| Most emails have no `List-Unsubscribe` header | +1 |
+| Most emails have a `List-Unsubscribe` header (bulk mail) | -1 |
+| 5 emails or fewer | +1 |
+| 50 emails or more | -1 |
+
+Score 5 or more = `high`, 3 or 4 = `medium`, otherwise `low`.
 
 ## What it does
 - Reads only the sender, subject, and date (never the email body)
@@ -102,6 +120,7 @@ Want another one? Add it to the `KEYWORDS` dictionary and open a pull request.
 - Shows who emailed you, which doesn't prove an account exists
 - Can't find sites that never sent you an email
 - Keyword matching can produce false positives
+- The score is a ranking heuristic, not proof that an account exists.
 
 ## Disclaimer
 Use it only on your own email. Never upload your .mbox or your CSV files.
