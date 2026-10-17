@@ -77,6 +77,18 @@ each domain as DELETE, KEEP, or CHANGE.
 ### 5. Clean up
 Delete the .mbox file when you're done. It contains your entire inbox.
 
+## Options
+- `-o, --output`: output CSV file (default: `result.csv`)
+- `--lang`: keyword languages, e.g. `en,pt` (default: all)
+- `--extra`: extra words to flag, e.g. `--extra "inscription,registro"`
+
+Supported languages: English, Portuguese, Spanish, French, German.
+Want another one? Add it to the `KEYWORDS` dictionary and open a pull request.
+
+## Output columns
+`domain`, `total_emails`, `signup_or_password_emails`, `first_date`,
+`last_date`, `example_subject`, `action (fill in)`
+
 ## What it does
 - Reads only the sender, subject, and date (never the email body)
 - Groups emails by domain and counts signup/password-related messages
@@ -85,6 +97,7 @@ Delete the .mbox file when you're done. It contains your entire inbox.
 ## Limitations
 - Shows who emailed you, which doesn't prove an account exists
 - Can't find sites that never sent you an email
+- Keyword matching can produce false positives
 
 ## Disclaimer
 Use it only on your own email. Never upload your .mbox or your CSV files.
