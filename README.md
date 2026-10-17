@@ -16,14 +16,19 @@ Runs 100% locally: no internet, passwords, or APIs involved.
    
 3. Find **Mail** and tick its checkbox.
    - Tip: press `Ctrl+F` and search for `mbox` to jump straight to it.
-   <img width="617" height="150" alt="image" src="https://github.com/user-attachments/assets/76457ef9-ecc5-4178-a652-bba4ff18aa37" />
+
+   <img width="617" height="150" alt="Takeout Mail option highlighted after searching for mbox" src="https://github.com/user-attachments/assets/76457ef9-ecc5-4178-a652-bba4ff18aa37" />
+
+   *(Screenshots are from the Portuguese interface. The options are the same in other languages.)*
 
 4. Click **All Mail data included** to choose which labels are exported.
    - **Recommended: leave everything included.** Signup emails often end
      up in Spam, Trash, or archived, and you want to find those too.
    - If you only care about your main inbox, untick Spam and Trash.
-   
-   <img width="695" height="181" alt="image" src="https://github.com/user-attachments/assets/e06aa205-d5b0-42a0-a1a2-fb686bc8f0fa" />
+
+   <img width="695" height="181" alt="The All Mail data included button in Takeout" src="https://github.com/user-attachments/assets/e06aa205-d5b0-42a0-a1a2-fb686bc8f0fa" />
+
+   *(Screenshots are from the Portuguese interface. The options are the same in other languages.)*
 
 5. Make sure the format is **MBOX** (it is by default). Click **Next step**.
 
@@ -32,20 +37,19 @@ Runs 100% locally: no internet, passwords, or APIs involved.
 | Option | What to pick | Why |
 |---|---|---|
 | **Destination** | **Send download link via email** (recommended) | The file goes straight to you and never sits in another cloud. |
-| | Add to Drive / Dropbox / OneDrive / Box | Only if your disk is nearly full. Your whole inbox will be stored in that cloud, so delete it afterwards. |
 | **Frequency** | **Export once** (recommended) | You only need one snapshot. |
-| | Every month / every 2 months for a year | Not needed. It creates 6 to 12 exports of your whole inbox. |
 | **File type** | **.zip** (recommended) | Opens on almost any computer, including Windows. |
-| | .tgz | Only if you are comfortable with Linux or macOS tools. |
-| **File size** | **2 GB** (default) is fine for most people | Small inboxes fit in a single file. |
-| | Pick a larger size (10 GB or more) | If your inbox is big, this reduces how many .zip files you get. |
+| **File size** | **2 GB** (default) | Small inboxes fit in a single file. |
 
 6. Click **Create export**.
-
 7. Wait for Google's email (a few minutes to a few hours). The download
    link expires after about a week, so download it soon.
-   - <img width="681" height="461" alt="image" src="https://github.com/user-attachments/assets/2fad9db4-7bbc-4f73-85be-2fe2789d498b" />
 
+   <img width="681" height="461" alt="Takeout step 2: destination, frequency, file type and size" src="https://github.com/user-attachments/assets/2fad9db4-7bbc-4f73-85be-2fe2789d498b" />
+
+   *(Screenshots are from the Portuguese interface. The options are the same in other languages.)*
+
+   Click **Manage Google Takeout request** to open the download page.
 8. Extract the .zip. Inside you will find the `.mbox` file.
 
 > If you receive several .zip files, extract all of them and run the
